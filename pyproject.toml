@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ncs-faceid-cli"
+version = "0.1.0"
+description = "NCS Visitor Identification CLI prototype (local)"
+requires-python = ">=3.10"
+
+[project.scripts]
+faceid = "faceid.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

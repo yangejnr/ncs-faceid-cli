@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: ncs-faceid-cli
+Version: 0.1.0
+Summary: NCS Visitor Identification CLI prototype (local)
+Requires-Python: >=3.10

@@ -1,0 +1,12 @@
+pyproject.toml
+src/faceid/__init__.py
+src/faceid/cli.py
+src/faceid/db.py
+src/faceid/engine.py
+src/faceid/index.py
+src/faceid/tracker.py
+src/ncs_faceid_cli.egg-info/PKG-INFO
+src/ncs_faceid_cli.egg-info/SOURCES.txt
+src/ncs_faceid_cli.egg-info/dependency_links.txt
+src/ncs_faceid_cli.egg-info/entry_points.txt
+src/ncs_faceid_cli.egg-info/top_level.txt
