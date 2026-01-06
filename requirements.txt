@@ -1,0 +1,9 @@
+typer==0.12.5
+click==8.1.7
+rich==13.7.1
+opencv-python==4.10.0.84
+numpy==1.26.4
+faiss-cpu==1.8.0.post1
+onnxruntime==1.18.1
+insightface==0.7.3
+pydantic==2.8.2
