@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cat > src/faceid/cli.py << 'PY'
 from __future__ import annotations
 
 import time
@@ -414,3 +418,9 @@ def live(
     cap.release()
     cv2.destroyAllWindows()
     con.close()
+PY
+
+pip install -e . --force-reinstall >/dev/null
+
+echo "Update applied."
+echo "Run: faceid live --camera 0 --db data/faceid.sqlite3 --history-size 10"
