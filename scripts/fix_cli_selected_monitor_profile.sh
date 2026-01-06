@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cat > src/faceid/cli.py << 'PY'
 from __future__ import annotations
 
 import time
@@ -774,3 +778,12 @@ def live(
     cap.release()
     cv2.destroyAllWindows()
     con.close()
+PY
+
+# sanity check: compile file so we catch indentation/syntax errors immediately
+python -m py_compile src/faceid/cli.py
+
+pip install -e . --force-reinstall >/dev/null
+
+echo "Fixed CLI. Now run:"
+echo "  faceid live --camera 0 --db data/faceid.sqlite3"
