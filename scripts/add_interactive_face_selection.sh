@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cat > src/faceid/cli.py << 'PY'
 from __future__ import annotations
 
 import time
@@ -590,3 +594,10 @@ def live(
     cap.release()
     cv2.destroyAllWindows()
     con.close()
+PY
+
+pip install -e . --force-reinstall >/dev/null
+
+echo "Interactive selection feature added."
+echo "Run:"
+echo "  faceid live --camera 0 --db data/faceid.sqlite3 --require-selection"
