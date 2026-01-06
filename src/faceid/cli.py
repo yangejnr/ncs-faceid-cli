@@ -340,7 +340,6 @@ def live(
 
         for tid, bbox in assignments.items():
             x1, y1, x2, y2 = bbox
-            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
             label = f"ID {tid}: Tracking"
             decision = "TRACK"
@@ -380,7 +379,12 @@ def live(
             elif decision == "LOW_QUALITY":
                 label = f"ID {tid}: LOW QUALITY"
 
-            cv2.putText(frame, label, (x1, max(20, y1 - 8)), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 0), 2)
+            # Box color: UNKNOWN -> red, otherwise green
+            box_color = (0, 255, 0)
+            if decision == "UNKNOWN":
+                box_color = (0, 0, 255)
+            cv2.rectangle(frame, (x1, y1), (x2, y2), box_color, 2)
+            cv2.putText(frame, label, (x1, max(20, y1 - 8)), cv2.FONT_HERSHEY_SIMPLEX, 0.55, box_color, 2)
 
             # Add to history only on MATCH, and only once per person (dedup)
             if decision == "MATCH" and matched_pid is not None:
